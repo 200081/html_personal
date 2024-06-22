@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>陈锐涛的个人网站</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+         :root {
+            --blue: #2980b9;
+            --black: #333;
+            --white: #fff;
+            --light-color: #777;
+            --light-bg: #eee;
+            --box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+        }
+
+        p {  
+        text-indent: 2em;  
+        }
+
+        .no-indent {  
+        text-indent: 0;  
+        }
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: all .2s linear;
+        }
+        
+        html::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        html::-webkit-scrollbar-track {
+            background: var(--blue);
+        }
+        
+        html::-webkit-scrollbar-thumb {
+            background: var(--white);
+            border-radius: 50px;
+        }
+        
+        .title {
+            font-size: 25px;
+            color: var(--blue);
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            margin-top: 10px;
+            display: inline-block;
+            padding: 7px 20px;
+            border-radius: 5px;
+            background: var(--blue);
+            color: var(--white);
+            font-size: 17px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .btn:hover {
+            background: var(--black);
+        }
+        
+        .container {
+            padding: 100px 9%;
+            background: linear-gradient(45deg, deeppink, var(--blue));
+            display: flex;
+        }
+        
+        .container .profile {
+            flex: 1 1 400px;
+            background: var(--white);
+            padding: 20px 30px;
+            text-align: center;
+            position: sticky;
+            top: 20px;
+            left: 0;
+            border-right: 2px solid var(--black);
+            align-self: flex-start;
+        }
+        
+        .container .profile img {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            border: 2px solid var(--black);
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        /*.container .new-image {
+            height: 500px;
+            width: 666px;
+            border-radius: 10px;
+            border: 2px solid var(--black);
+            object-fit: cover;
+            margin-bottom: 10px;
+        }*/
+
+        .container .new-image {  
+            height: 500px;  
+            width: 666px;  
+            border-radius: 10px;  
+            border: 2px solid var(--black);  
+            object-fit: cover;  
+            margin-bottom: 10px;  
+            display: block; /* 将图片设为块级元素 */  
+            margin-left: auto; /* 设置左边距为自动 */  
+            margin-right: auto; /* 设置右边距为自动 */  
+        }
+
+        .new-image {  
+            max-width: 100%;  
+            height: auto;  
+        }
+
+        @media only screen and (max-width: 600px) {  
+        .container .new-image {  
+            height: 240px;  
+            width: 320px;  
+            }  
+        }
+        
+        .container .profile h3 {
+            color: var(--black);
+            font-size: 20px;
+        }
+        
+        .container .profile p {
+            color: var(--blue);
+            padding: 5px 0;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        
+        .container .profile .share {
+            margin: 10px 0;
+        }
+        
+        .container .profile .share a {
+            height: 50px;
+            width: 50px;
+            line-height: 50px;
+            font-size: 20px;
+            border-radius: 50%;
+            color: var(--black);
+            background: var(--light-bg);
+        }
+        
+        .container .profile .share a:hover {
+            background: var(--blue);
+            color: var(--white);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .container .information {
+            flex: 1 1 1000px;
+            background: var(--white);
+            padding: 20px 30px;
+        }
+        
+        .container .information .about p {
+            font-size: 17px;
+            line-height: 2;
+            padding-bottom: 10px;
+            color: var(--light-color);
+        }
+        
+        .container .information .about .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .container .information .about .box-container .box {
+            flex: 1 1 250px;
+        }
+        
+        .container .information .about .box-container .box h3 {
+            font-size: 15px;
+            padding: 10px 0;
+            color: var(--black);
+        }
+        
+        .container .information .about .box-container .box h3 span {
+            color: var(--light-color);
+        }
+        
+        .container .information .services {
+            padding: 20px 0;
+        }
+        
+        .container .information .services .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .container .information .services .box-container .box {
+            flex: 1 1 17px;
+            text-align: center;
+            border-radius: 5px;
+            padding: 20px;
+            background: var(--light-bg);
+        }
+        
+        .container .information .services .box-container .box img {
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        
+        .container .information .services .box-container .box h3 {
+            font-size: 15px;
+            color: var(--light-color);
+        }
+        
+        .container .information .skills .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .container .information .skills .box-container .box {
+            flex: 1 1 300px;
+        }
+        
+        .container .information .skills .box-container .box .progress h3 {
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            color: var(--black);
+            font-size: 15px;
+        }
+        
+        .container .information .skills .box-container .box .progress h3 span {
+            color: var(--light-color);
+        }
+        
+        .container .information .skills .box-container .box .progress .bar {
+            overflow: hidden;
+            border-radius: 50px;
+            height: 10px;
+            background: var(--light-bg);
+        }
+        
+        .container .information .skills .box-container .box .progress .bar span {
+            background: var(--blue);
+            height: 100%;
+            display: block;
+            border-radius: 50px;
+        }
+        
+        .container .information .skills .box-container .box:first-child .progress:nth-child(1) .bar span {
+            width: 95%;
+        }
+        
+        .container .information .skills .box-container .box:first-child .progress:nth-child(2) .bar span {
+            width: 80%;
+        }
+        
+        .container .information .skills .box-container .box:first-child .progress:nth-child(3) .bar span {
+            width: 65%;
+        }
+        
+        .container .information .skills .box-container .box:first-child .progress:nth-child(4) .bar span {
+            width: 70%;
+        }
+        
+        .container .information .skills .box-container .box:last-child .progress:nth-child(1) .bar span {
+            width: 90%;
+        }
+        
+        .container .information .skills .box-container .box:last-child .progress:nth-child(2) .bar span {
+            width: 75%;
+        }
+        
+        .container .information .skills .box-container .box:last-child .progress:nth-child(3) .bar span {
+            width: 65%;
+        }
+        
+        .container .information .skills .box-container .box:last-child .progress:nth-child(4) .bar span {
+            width: 70%;
+        }
+        
+        .container .information .experience {
+            margin: 20px 0;
+        }
+        
+        .container .information .experience .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .container .information .experience .box-container .box {
+            padding: 20px;
+            border-radius: 5px;
+            flex: 1 1 350px;
+            background: var(--light-bg);
+        }
+        
+        .container .information .experience .box-container .box span {
+            color: var(--blue);
+            font-size: 15px;
+        }
+        
+        .container .information .experience .box-container .box h3 {
+            color: var(--black);
+            font-size: 17px;
+            padding: 5px 0;
+        }
+        
+        .container .information .experience .box-container .box p {
+            color: var(--light-color);
+            line-height: 2;
+            font-size: 13px;
+        }
+        
+        .container .information .contact .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .container .information .contact .box-container .box {
+            flex: 1 1 200px;
+            display: flex;
+            align-self: flex-start;
+            gap: 10px;
+        }
+        
+        .container .information .contact .box-container .box i {
+            height: 40px;
+            width: 40px;
+            line-height: 40px;
+            font-size: 15px;
+            border-radius: 50%;
+            background: var(--blue);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .container .information .contact .box-container .box h3 {
+            font-size: 17px;
+            color: var(--black);
+            padding-bottom: 5px;
+        }
+        
+        .container .information .contact .box-container .box p {
+            font-size: 14px;
+            color: var(--light-color);
+            line-height: 2;
+        }
+        
+        @media (max-width:1200px) {
+            .container {
+                flex-flow: column;
+                padding: 20px;
+                justify-content: center;
+            }
+            .container .profile {
+                position: static;
+                border-radius: 5px;
+                box-shadow: var(--box-shadow);
+                padding: 20px;
+                border-right: none;
+                margin: 0 auto;
+                margin-bottom: 15px;
+            }
+            .container .information {
+                border-radius: 5px;
+                box-shadow: var(--box-shadow);
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width:450px) {
+            .container .profile {
+                width: 100%;
+            }
+            .container .profile .btn {
+                width: 100%;
+            }
+            .container .information .about p {
+                font-size: 12px;
+            }
+            .container .information .experience .box-container .box p {
+                font-size: 12px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+
+        <div class="profile">
+            <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/b70cd226beb578dc253f4903f6804a78.jpeg" alt="">
+            <h3>陈锐涛</h3>
+            <p>📞18002985523</p>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+            <div class="buttons">
+                <a href="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E9%99%88%E9%94%90%E6%B6%9B%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86%60(1).pdf" class="btn">查看简历</a>
+                <a href="javascript:alert('发送成功');" class="btn">发送面试邀请</a>
+            </div>
+        </div>
+
+        <div class="information">
+
+            <div class="about">
+                <h3 class="title">about me</h3>
+                <p>非常感谢您访问我的个人网站！下面我从专业知识、掌握技能、个人性格三个方面介绍自己。</p> 
+                <p>专业知识。我就读于广东石油化工学院，专业是测控技术与仪器，主要学习的知识有计算机控制技术、自动控制原理、数字系统设计、测控电路、运放电路设计、测控仪器设计、嵌入式原理等仪器相关知识从软件到硬件都有系统的学习，同时我的学习成绩位于班级前5%，获得国家励志奖学金和两次学校一等奖学金，并积极利用课后时间考取证书，有英语四级证书、CAD绘图员四级证书、计算机二级。</p>
+                <p>掌握技能。在课后我喜欢钻研新技术，我有4段项目经历，通过项目驱动，自学了python、c++、图像处理编程，有开发STM32、树莓派这类开发板的开发经验用于做项目，还自学了soildworks建模和3D打印，CAD绘图，网页编程等等从软件到硬件的技能，在简历右下角的二维码就是我通过自学网页编程搭建的个人网站，通过结合图片的浏览可更好得展示我的经历。并且我也积极将我学的知识应用到实践当中，带领团队参加比赛获得了2个省赛奖项、4个校级奖项。</p>
+                <p>个人性格。我的性格属于比较外向，善于团队协作和沟通协调，在学校担任三年的学生会宣传部干事，有4次组织绘画书法、公益捐书的活动，每场参加人数在50人左右。积极配合老师展开学生工作，帮助学生解决问题，获得学校“优秀学生骨干”“优秀共青团员”称号。</p>
+                <div class="box-container">
+                    <div class="box">
+                        <h3> <span> 年龄 : </span> 23 </h3>
+                        <h3> <span> 地址 : </span> 广东，东莞 </h3>
+                        <h3> <span> 电话 : </span> 18002985523 </h3>
+                        <h3> <span> 邮箱 : </span> 2652421074@qq.Com </h3>
+                    </div>
+                    <div class="box">
+                        <h3> <span> 学校 : </span> 广东石油化工学院 </h3>
+                        <h3> <span> 学历 : </span> 本科 </h3>
+                        <h3> <span> 政治面貌 : </span> 中共党员 </h3>
+                        <h3> <span> 毕业时间 : </span> 2024年6月 </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services">
+                <h3 class="title">my services</h3>
+                <div class="box-container">
+                    <div class="box">
+                        <img src="http://nocturne.bczcdn.com/file/1645598211806_42022/icon-1.png" alt="">
+                        <h3>HTML 5</h3>
+                    </div>
+                    <div class="box">
+                        <img src="http://nocturne.bczcdn.com/file/1645598216656_89057/icon-2.png" alt="">
+                        <h3>CSS 3</h3>
+                    </div>
+                    <div class="box">
+                        <img src="http://nocturne.bczcdn.com/file/1645598219832_4197/icon-3.png" alt="">
+                        <h3>JavaScript</h3>
+                    </div>
+                    <div class="box">
+                        <img src="http://nocturne.bczcdn.com/file/1645598223509_63268/icon-4.png" alt="">
+                        <h3>Python</h3>
+                    </div>
+                    <div class="box">
+                        <img src="http://nocturne.bczcdn.com/file/1645598226940_86454/icon-5.png" alt="">
+                        <h3>SQL</h3>
+                    </div>
+                    <div class="box">
+                        <img src="http://nocturne.bczcdn.com/file/1645598230253_49248/icon-6.png" alt="">
+                        <h3>C++</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills">
+                <h3 class="title">my skills</h3>
+                <div class="box-container">
+                    <div class="box">
+                        <div class="progress">
+                            <h3>C <span>95%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>python <span>80%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>css <span>65%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>html <span>70%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="progress">
+                            <h3>opencv <span>90%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>CAD <span>75%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>PLC <span>65%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>solidwords <span>70%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience">
+                <h3 class="title">education</h3>
+                <div class="box-container">
+                    <div class="box">
+                        <span>2022.9 - 2024.6</span>
+                        <h3>广东石油化工学院（本科、全日制）</h3>
+                        <p>专业：测控技术与仪器，主修专业：嵌入式系统原理及应用、计算机控制技术、自动控制原理、数字系统设计、测控电路、传感器与检测技术、测控软件基础、信号与系统、运算放大器应用电路设计、测控与系统、测控仪器设计、集散控制系统与工业控制网络</p>
+                        <span>2019.9 - 2022.6</span>
+                        <h3>广东交通职业技术学院（专科、全日制）</h3>
+                        <p>专业：城市轨道交通机电技术，主修课程：C语言程序设计、单片机技术、计算机应用基础、微机原理及应用、电气控制与PLC、电路分析、电子技术及应用、电力电子技术、机械制图与CAD、液压与气动</p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience">
+                <h3 class="title">Internship experience</h3>
+                <div class="box-container">
+                    <div class="box">
+                        <span>2022.1 - 2022.7</span>
+                        <h3>佛山市顺德区彩联塑料制品有限公司</h3>
+                        <p class="no-indent">岗位：设备调试员</p><p>主要负责对成品需求进行拆分整理，根据生产流程部署到生产线的不同设备上，试运行生产线，针对运行的情况进行环节上的改进，提高安全性和效率，提供稳定可靠的生产排期和产值预估给公司</p>
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/76ae168b34277e572b2e6556421a83e7.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/f55e76b7a19d3d7e68e82194515b565f.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/b30236beae8f39208be625b3be536067.jpeg" class="new-image" alt="description">
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience">
+                <h3 class="title">campus experience</h3>
+                <div class="box-container">
+                    <div class="box">
+                        <span>2019.9 - 2022.6</span>
+                        <h3>学生会宣传部干事</h3>
+                        <p>策划学院“五四表彰”大会、线下书法绘画活动、捐书活动等，累计举办4场，每场人数达50+。积极协助学生会工作，撰写学院成绩、奖学金等公示，志愿时长70小时，积极向党组织靠拢，积极帮助学生解决困难并向辅导员反馈，帮助辅导员更好得展开学生工作，在2021年5月获得学校“优秀学生骨干”的称号</p>
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/df24de21e6f39ac529b1c3157169de70e32d05ed/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/b181459c0073abc9878c2a136131c1b4.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/aaa0c340e0b55fd3175d2c53d938e823.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/adc61262748bb096b3eecb3a02e17445.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/3e13ca30ff1efe63847e96893aaa049d.jpeg" class="new-image" alt="description">
+                        <span>2019.9 - 2022.6</span>
+                        <h3>机电控制工作室干事</h3>
+                        <p>在工作室中学习各种技能，包括CAD绘图、C语言程序设计、单片机、PLC等等，有良好的团队意识和技术基础，并跟随指导老师制作科技创新作品，参加从校级到省级的技能竞赛，带领团队获得2项省赛奖项、4项校级奖项。</p>
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/9f50eaad415ea8641576a0baa8b89018.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/29bfbed489cf00ee3dd6ff18f4f6fd6e.jpeg" class="new-image" alt="description">
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience">
+                <h3 class="title">Project experience</h3>
+                <div class="box-container">
+                    <div class="box">
+                        <span>2021.6 - 2022.8</span>
+                        <h3>轨道检修机器人</h3>
+                        <p>2020年6月参加学校组织的生产实习对广州地铁的车辆检修环节进行学习和体验，这个过程中发现地铁运维的智能化水平不高，检修进度效率和数据共享实时性不高，我希望针对目前轨道车辆检修的传统人工检修进行科技赋能，提出设计一款轨道检修机器人参与运维工作、实现自主检修车辆底部关键部件的状态分析及预警。我组建团队寻找专业相关的指导老师，申请学校科技创新项目资金成立项目。
+                            我们团队基于人工智能技术、AI视觉识别技术、移动机器人、大数据、物联网等新一代信息技术，实现了移动机器人自主导航巡检轨道列车机械结构故障自主识别报警，解决轨道交通车辆运维检修难度大、人工维修经验局限、智能运维水平低等问题。可进行轨道交通车辆机械部件实时状态感知、故障预测与智能运维，从而达到提高运维部门安全风险管理水平，优化生产组织和业务流程，降低能耗和生产成本的目的。<br />我的职责：</p><p>我担任项目负责人，负责采用OpenCV的颜色HSV范围或颜色通道分离提取技术，实现了对轨道列车设备部件的防松标记线提取.采用形态学变换、图像预处理轮廓检测等，实现了防松标记线的高清轮廓检测，多边形逼近操作、利用高精度的霍夫直线变换进行数据遍历，实现了防松标记线是否发生松动的自动化检测基于yolo算法的螺栓识别技术，用于轨道交通车辆部件紧固落实的检测<br />成果:</p><p>带领团队获得第十三届“挑战杯”广东大学生创业计划竞赛银奖</p>
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/57107575c61786f0ff573c85e6ed0932.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/d2fa17c21aa5be78fbd8b95d1de04baa.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/b7c5716c480480d0d6c61e036f9bd7a8.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/bd877587c3890745b9264dc5fe05b302.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/c8d0b09433f4b864e43dad55e76b8591.jpeg" class="new-image" alt="description">
+                        <span>2021.6 - 2021.12</span>
+                        <h3>基于ROS的激光雷达动态导航机器人研究</h3>
+                        <p>随着人工智能和控制技术的突飞猛进，机器人领域发生着日新月异的变化，机器人在人类生产生活中占据越来越重要的地位，智能机器人领域也逐渐被人们所熟知，诸如：无人驾驶汽车、无人飞行器、AGV(智能搬运车)、扫地机器人、服务机器人等产品都逐渐走进人们的日常生活中。然而目前的智能机器人技术还十分不成熟，其中以定位技术为代表和包括地图构建、最佳路径导航等技术在内的技术难题也逐渐浮现出来。本项目对移动机器人进行在动态环境中具备自适应构建周围环境地图，同时具备动态改变最佳路径自主导航的能力，项目研究成果对于目前不成熟的机器人地图构建、动态最佳路径导航技术等具有重要的理论意义和实际应用价值。
+                            本项目将在机器人操作系统(Robot Operating System, ROS)上进行移动机器人激光雷达导航方案总体设计，针对当前导航技术中同时定位与地图构建(Simultaneous Localization and Mapping, SLAM)算法和路径规划算法中存在的不足，提出一种改进重采样过程的RBPF-SLAM算法和基于改进人工蜂群算法的路径规划方法，并基于此实现一种稳定可靠能够自适应识别环境构建地图、动态改变最佳导航路径的移动机器人，并可将该技术应用于无人驾驶、服务型机器人、AGV、扫地机器人、人脸识别、室内3D重建、八叉树地图、vSLAM等智能领域。<br />我的职责：</p><p>负责外观设计，自学使用树莓派4B和ROS系统，订阅激光雷达数据包进行数据解析以构建地图，完善机器人地图定位和路径规划的代码编写<br />成果：</p><p>获得一项实用新型专利证书</p>
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/a9459b504e9e8cec6e5cde87506cd221.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/cf41ad21ef894891cd005ab29e8d08d6.jpeg" class="new-image" alt="description">
+                        <span>2021.4 - 2021.7</span>
+                        <h3>智能分拣机器人</h3>
+                        <p>采用 AGV小车引导方式，通过激光雷达导航技术使 AGV小车在移动过程中自动构建二维地图，再将在运行过程中获取的地图信息与自建地图进行配准对比实现 AGV小车的定位。通过yolo视觉识别等技术搭配机械臂实现物体的分类分拣。<br />我的职责：</p><p>在项目中，我主要负责前期收集市场行情，结合现有可行技术提出创新想法，确定项目的方向，提供创意与团队成员协作完善项目内容。作为答辩参赛成员，模拟现场答辩。同团队一起成长，能够自信、流利地回答问题，让评委对我们的观点和成果有更深入的了解。<br />成果：</p><p>获得第七届“台达杯”广东省省赛三等奖</p>
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/027d1563d662bd7ce7b63338aed9e35a.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/042326f5347407acf61cc9a60b2402d0.jpeg" class="new-image" alt="description">
+                        <span>2020.9 - 2021.3</span>
+                        <h3>碳中和—低功耗智能路灯控制系统</h3>
+                        <p>主要采用基于低功耗的NB-loT无线物联网技术构建智能路灯监控系统。采用主控芯片 STM32L431RCT6进行路灯控制终端的开发，实现实时采集路灯所处环境的温度、经纬位置、光照强度等状态信息，同时研究 NB-loT无线物联网通信技术及OneNET网络平台的通信协议，结合C语言和JAVA编程语言等技术设计开发路灯监控系统的软件以及监控终端（含手机 APP、PC端监控软件），并通过软件程序对路灯监控系统的功耗进行了对比优化。<br />我的职责：</p><p>1.在项目中负责STM32控制器的代码编写，实现了路灯控制终端的开发。熟悉STM32L431RCT6主控芯片的特性及开发方式，能够熟练进行C语言的编程，并能够运用调试工具进行程序的调试和优化。
+                            </p><p>2.负责路灯监控系统的状态信息采集和数据处理。熟悉各种传感器和采集模块的特性和使用方法，能够根据不同的应用场景进行选型和配置。
+                            </p><p>3.研究NB-loT无线物联网通信技术及OneNET网络平台的通信协议，并实现与云平台的通信。能够根据通信协议要求进行数据解析和封装，实现终端设备与云平台的稳定通信。<br />成果：</p><p>获得一项新型专利证书、“挑战杯”广东大学生课外学术科技作品竞赛校赛三等奖、“互联网+”大学生创新创业大赛校赛三等奖</p>
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/05bfeb0b94f400bffcd0412f14e266e6.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/7ebc4a043247b03f7586374da10ae86d.jpeg" class="new-image" alt="description">
+                        <span>2020.3 - 2020.7</span>
+                        <h3>安全卫士-多功能充电宝</h3>
+                        <p>本项目采用了锂聚合物作为电芯，增加辅助机构及点火装置产品，将在5秒内加热温度至200~300℃起到高温消毒或者电子起火功能<br />我的职责：</p><p>担任团队中的结构设计，进行产品结构设计，研发优化产品的整体结构，整理项目内容成计划书，协调团队内容等<br />成果：</p><p>“互联网+”大学生创新创业大赛校赛二等奖</p>
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/d93cf2a2e884933928cecabfd09ea06c.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/78af613f4e06ca212e3809a8fdfa7797.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/b2778ff931ac3ee315225a451c470f63.jpeg" class="new-image" alt="description">
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience">
+                <h3 class="title">awards</h3>
+                <div class="box-container">
+                    <div class="box">
+                        <p class="no-indent">2022年7月获得第十三届”挑战杯“广东大学生创业计划竞赛银奖，<br />2021年12月获得“国家励志奖学金”，<br />2021年12月获得学院“三好标兵”奖学金，<br />2021年7月获得“互联网+”大学生创新创业校赛选拔赛三等奖，<br />2021年5月获得省赛“台达杯”三等奖</p>
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/b933338cba987683a9f218b2181a2c0a.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/4856ec4abad6948ea70cdb5bf073596d.jpeg" class="new-image" alt="description">
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience">
+                <h3 class="title">skills/Certificates</h3>
+                <div class="box-container">
+                    <div class="box">
+                        <h3>技能：</h3>
+                        <p>掌握C语言、python，有STM32F103C8T6、S5P6818、树莓派4B、jetson nano的开发经验，使用opencv库机械图像预处理和状态分析的代码编写，Solidwork建模与3D打印，CAD绘图，机器人ROS、SLAM，网页CSS、HTML</p>
+                        <h3>证书：</h3>
+                        <p>CET-4（445）、CAD绘图四级证书、1+X电气设备装配调试技能证书（中级）、计算机二级（office）</p>
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/4e5f1ef260b943b8efb287c4a83f67d3.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/7abcc85800440dd55ada017c6d0bfbe8.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/8f1192c4b72fb2a5042258508f385c25.jpeg" class="new-image" alt="description">
+                        <img src="https://gitee.com/carp-dragon/html-training/raw/master/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%88%B6%E4%BD%9C/%E5%9B%BE%E7%89%87/f413a121948cc82ea40de7fade65f7cf.jpeg" class="new-image" alt="description">
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact">
+                <h3 class="title">contact info</h3>
+                <div class="box-container">
+                    <div class="box">
+                        <i class="fas fa-map"></i>
+                        <div class="info">
+                            <h3>微信</h3>
+                            <p>18002985523</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <i class="fas fa-phone"></i>
+                        <div class="info">
+                            <h3>my number</h3>
+                            <p>18002985523</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <i class="fas fa-envelope"></i>
+                        <div class="info">
+                            <h3>my email</h3>
+                            <p>2652421074@qq.Com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
+
